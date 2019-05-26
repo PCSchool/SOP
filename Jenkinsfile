@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker {image 'python:2.7-slim'} }
+    agent any
     stages {
         stage('start') {
             steps {
-                sh 'python --version'
+                echo 'hello from jenkins'
             }
         }
     }
