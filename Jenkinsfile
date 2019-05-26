@@ -1,13 +1,10 @@
 pipeline {
-    agent any
-        stages {
-            stage('start') {
-                steps {
-                    echo 'hello jenkins'
-                }
-            }
-            stage('build'){
-                agent { docker {image 'ubuntu'}}
+    agent { docker {image 'python:2.7-slim'} }
+    stages {
+        stage('start') {
+            steps {
+                sh 'python --version'
             }
         }
+    }
 }
