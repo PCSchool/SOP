@@ -13,12 +13,13 @@ pipeline {
         }
         stage('SonarQube analysis'){
             steps{
-                echo 'start SonarQube analysis'
+                echo 'start SonarQube analysis';
+                def scannerHome = tool 'SonarQube Scanner 3.3';
+                withSonarQubeenv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
-            def scannerHome = tool 'SonarQube Scanner 3.3';
-            withSonarQubeenv('sonarqube') {
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
+            
         }
     }
 }
