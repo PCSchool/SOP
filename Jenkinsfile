@@ -6,6 +6,8 @@ pipeline {
                 sh 'python --version'
             }
         }
+    }
+    node{
         stage('SCM') {
             git 'https://github.com/foo/bar.git'
         }
