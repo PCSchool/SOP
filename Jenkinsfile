@@ -15,7 +15,8 @@ pipeline {
             steps{
                 echo 'start SonarQube analysis';
                 def scannerHome = tool 'SonarQube Scanner 3.3';
-                withSonarQubeenv('sonarqube') {
+                echo scannerHome;
+                withSonarQubeEnv('sonarqube') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
