@@ -13,7 +13,8 @@ pipeline {
         }
         stage('SonarQube analysis'){
             environment{
-                scannerHome = tool 'SonarQube Scanner 3.3';
+                //scannerHome = tool 'SonarQube Scanner 7.7';
+                scannerHome = '/opt/sonar-scanner-3.3.0.1492-linux'
             }
             steps{
                 echo 'start SonarQube analysis';
