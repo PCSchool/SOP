@@ -10,7 +10,7 @@ pipeline {
 }
 node{
         stage('SCM') {
-            git 'https://github.com/foo/bar.git'
+            git 'https://github.com/PCSchool/SOP.git'
         }
         stage('SonarQube analysis') {
             // requires SonarQube Scanner 2.8+
