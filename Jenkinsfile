@@ -7,7 +7,8 @@ pipeline {
             }
         }
     }
-    node{
+}
+node{
         stage('SCM') {
             git 'https://github.com/foo/bar.git'
         }
@@ -19,5 +20,3 @@ pipeline {
             }
         }
     }
-}
-
