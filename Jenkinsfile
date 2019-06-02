@@ -6,8 +6,10 @@ pipeline {
                 sh 'python --version'
             }
         }
-        stage('SonarQubeAnalysis') {
-            echo 'sonarqube start'
+        stage('sonar') {
+            steps{
+                echo 'sonarqube start'
+            }
         }
     }
 }
