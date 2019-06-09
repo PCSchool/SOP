@@ -21,11 +21,11 @@ node {
             }
         }
 
-        stage ('Run') {
+        stage ('Test') {
             docker.image("localhost:5000/jenkins-service:${env.version}").run('-p 2222:2222 -h account --name account --link discovery')
         }
 
-        stage ('Final') {
+        stage ('Deployment') {
             build job: 'jenkins', wait: false
         }      
 
