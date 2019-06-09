@@ -1,5 +1,9 @@
 node {
-
+    environment {
+        registry = "pcschool/sop"
+        registryCredential = 'dockerhub'
+        dockerImage = ''
+    }
     withMaven(maven:'maven') {
 
         stage('Checkout') {
@@ -26,8 +30,15 @@ node {
         }
 
         stage ('Deployment') {
-            build job: 'jenkins', wait: false
-        }      
+            steps {
+                script {
+                    docker.withRegistry( '', registryCredential) {
+                        docker.image.push()
+                    }
+                }
+            }
+            //build job: 'jenkins', wait: false
+        }     
 
     }
 
