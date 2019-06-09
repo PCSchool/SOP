@@ -27,10 +27,9 @@ node {
 
         stage ('Deployment') {
             steps {
-                script {
+                    sh 'docker login -u pcschool -p P@ssw0rd'
                     docker.withRegistry( '', registryCredential) {
                         docker.image.push()
-                    }
                 }
             }
             //build job: 'jenkins', wait: false
