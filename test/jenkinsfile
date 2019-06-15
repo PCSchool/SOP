@@ -11,7 +11,7 @@ pipeline {
                 //cd test
                 echo 'start test'
                 sh 'python --version'
-                python test.py
+                test.py
             }
         }
     }
