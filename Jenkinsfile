@@ -4,12 +4,15 @@ pipeline {
         stage('build') {
             agent { 
                 docker { 
-                    image 'python:3.5.1' 
+                    image 'python:3.7.2' 
                 } 
             }
             steps {
                 sh 'python --version'
             }
+        }
+        stage('build'){
+            sh 'pip install -r requirements.txt'
         }
         stage('SonarQube analysis'){
             environment{

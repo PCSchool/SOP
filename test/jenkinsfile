@@ -4,28 +4,15 @@ pipeline {
         stage('test') {
             agent { 
                 docker { 
-                    image 'python:3.5.1' 
+                    image 'python:3.7.2' 
                 } 
             }
             steps {
-                cd test
+                //cd test
                 echo 'start test'
                 sh 'python --version'
                 python test.py
             }
-        }
-        stage('SonarQube analysis'){
-            environment{
-                scannerHome = '/opt/sonar-scanner-3.3.0.1492-linux'
-            }
-            steps{
-                echo 'start SonarQube analysis';
-                echo scannerHome;
-                withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
-            
         }
     }
 }
